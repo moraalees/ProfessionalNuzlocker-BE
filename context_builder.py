@@ -2,7 +2,6 @@ def build_context(partida: dict) -> str:
     version = partida.get("versionJuego", "desconocida")
     jugador = partida.get("nombreJugador", "desconocido")
     inicial = partida.get("pokemonInicial", "desconocido")
-    medallas = len(partida.get("medallas", []))
     vidas = partida.get("vidas", 0)
 
     equipo = partida.get("equipo", [])
@@ -20,7 +19,7 @@ def build_context(partida: dict) -> str:
 
     return (
         f"Partida: Pokémon {version}\n"
-        f"Jugador: {jugador} | Inicial: {inicial} | Medallas: {medallas}/8\n"
+        f"Jugador: {jugador} | Inicial: {inicial}\n"
         f"Vidas restantes: {vidas}\n"
         f"Equipo actual: {equipo_str}\n"
         f"Pokémon caídos: {muertos_str}\n"
