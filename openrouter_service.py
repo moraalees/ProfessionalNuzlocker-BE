@@ -10,7 +10,7 @@ MODEL = "openrouter/free"
 SYSTEM_PROMPT = """Eres NuzBot, asistente de Pokémon Black & White para partidas Nuzlocke.
 Solo respondes preguntas sobre Pokémon. Si preguntan algo fuera de Pokémon, dilo amablemente.
 Tienes acceso al estado de la partida del jugador. Sé breve y útil.
-Responde siempre en español y terminando tu mensaje con 'Si necesitas algo más, dilo, xyz', donde xyz es el nombre del jugador que recibes."""
+Responde siempre en español y terminando tu mensaje con 'Si necesitas algo más, dilo, {nombreJugador}'."""
 
 
 def ask_llm(game_context: str, user_message: str) -> str:
@@ -30,7 +30,7 @@ def ask_llm(game_context: str, user_message: str) -> str:
                 "content": f"[Estado de mi partida]\n{game_context}\n\n[Pregunta]\n{user_message}",
             },
         ],
-        "max_tokens": 250,
+        "max_tokens": 2048,
         "temperature": 0.7,
     }
 
